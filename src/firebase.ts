@@ -13,7 +13,7 @@ export interface Message {
 const firebaseConfig = {
   apiKey: "AIzaSyCQ-SjleQpN1xakcR6AWkVVNglSTxZ9JiA",
   authDomain: "message-pkkmb-twomegabyte.firebaseapp.com",
-  databaseURL: "https://message-pkkmb-twomegabyte-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL: "https://message-pkkmb-twomegabyte-default-rtdb.firebaseio.com", // <- GANTI INI
   projectId: "message-pkkmb-twomegabyte",
   storageBucket: "message-pkkmb-twomegabyte.appspot.com",
   messagingSenderId: "177423676239",
