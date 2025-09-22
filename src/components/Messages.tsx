@@ -1,27 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import type { Message } from "../firebase";
 
-interface Message {
-  name: string;
-  text: string;
-  timestamp: number;
-}
 
 interface Props {
   messages: Message[];
 }
-
-const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://PROJECT_ID.firebaseio.com",
-  projectId: "PROJECT_ID",
-  // ...dll
-};
-
-const app = initializeApp(firebaseConfig);
-export const db = getDatabase(app);
 
 export default function Messages({ messages }: Props) {
   const [animatedIndex, setAnimatedIndex] = useState<number | null>(null);
@@ -30,7 +13,6 @@ export default function Messages({ messages }: Props) {
   useEffect(() => {
     if (messages.length > prevMessagesLength.current) {
       setAnimatedIndex(messages.length - 1);
-      // Hapus animasi setelah 1 detik (atau sesuai durasi animasi)
       setTimeout(() => setAnimatedIndex(null), 1000);
     }
     prevMessagesLength.current = messages.length;
@@ -57,7 +39,7 @@ export default function Messages({ messages }: Props) {
           ) : (
             messages.map((msg, i) => (
               <div
-                key={i}
+                key={msg.id || i}
                 className={`bg-white p-6 rounded-xl shadow-sm border border-gray-100
                   ${animatedIndex === i ? "fade-slide-up" : ""}
                 `}
