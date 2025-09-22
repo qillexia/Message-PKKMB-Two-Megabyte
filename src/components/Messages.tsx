@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
 interface Message {
   name: string;
@@ -9,6 +11,17 @@ interface Message {
 interface Props {
   messages: Message[];
 }
+
+const firebaseConfig = {
+  apiKey: "API_KEY",
+  authDomain: "PROJECT_ID.firebaseapp.com",
+  databaseURL: "https://PROJECT_ID.firebaseio.com",
+  projectId: "PROJECT_ID",
+  // ...dll
+};
+
+const app = initializeApp(firebaseConfig);
+export const db = getDatabase(app);
 
 export default function Messages({ messages }: Props) {
   const [animatedIndex, setAnimatedIndex] = useState<number | null>(null);
