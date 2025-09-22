@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { Message } from "../firebase";
-
+import type { Message } from "../firebase"; // ✅ type-only import
 
 interface Props {
   messages: Message[];
@@ -40,9 +39,9 @@ export default function Messages({ messages }: Props) {
             messages.map((msg, i) => (
               <div
                 key={msg.id || i}
-                className={`bg-white p-6 rounded-xl shadow-sm border border-gray-100
-                  ${animatedIndex === i ? "fade-slide-up" : ""}
-                `}
+                className={`bg-white p-6 rounded-xl shadow-sm border border-gray-100 ${
+                  animatedIndex === i ? "fade-slide-up" : ""
+                }`}
               >
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center font-semibold">

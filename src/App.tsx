@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { submitMessage, useMessages, type Message } from "./firebase"; // ✅ Import fungsi Firebase
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MessageForm from "./components/MessageForm";
@@ -7,18 +8,17 @@ import Gallery from "./components/Gallery";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
 
-interface Message {
-  name: string;
-  text: string;
-  timestamp: number;
-}
-
 export default function App() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const messages = useMessages(); // ✅ Ambil pesan dari Firebase real-time
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
-  const handleAddMessage = (name: string, text: string) => {
-    setMessages([{ name, text, timestamp: Date.now() }, ...messages]);
+  const handleAddMessage = async (name: string, text: string) => {
+    // ✅ Submit ke Firebase, bukan ke state lokal
+    await submitMessage({
+      name,
+      text,
+      timestamp: Date.now(),
+    });
   };
 
   const photos = ["/img/Photo1.jpg", "/img/Photo2.jpg"];
