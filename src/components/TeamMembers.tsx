@@ -18,7 +18,7 @@ export default function TeamMembers() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gray-50">
+    <section id="team" className="py-20 px-6 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-up">

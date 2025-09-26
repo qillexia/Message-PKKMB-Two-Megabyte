@@ -22,6 +22,12 @@ export default function Navbar() {
             Messages
           </a>
           <a
+            href="#team" // ✅ Link untuk TeamMembers
+            className="text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            Team
+          </a>
+          <a
             href="#gallery"
             className="text-gray-600 hover:text-gray-900 transition-colors"
           >
