@@ -70,7 +70,7 @@ export default function Messages({ messages }: Props) {
                   transition-all duration-300 hover:shadow-md hover:border-gray-200
                   ${
                     newMessageIndex === i
-                      ? "animate-bounce bg-blue-50 border-blue-200"
+                      ? "animate-fade-up bg-blue-50 border-blue-200"
                       : ""
                   }
                   ${showAll && i >= 5 ? "animate-fade-in-up" : ""}

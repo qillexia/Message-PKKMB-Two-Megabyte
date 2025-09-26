@@ -17,7 +17,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p className="md:text-xl text-l text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
           Berbagi cerita dan kenangan indah dari perjalanan kita sebagai
           mahasiswa baru
         </p>

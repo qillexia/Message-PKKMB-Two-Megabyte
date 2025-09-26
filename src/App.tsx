@@ -7,6 +7,7 @@ import Messages from "./components/Messages";
 import Gallery from "./components/Gallery";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
+import TeamMembers from "./components/TeamMembers";
 
 export default function App() {
   const messages = useMessages(); // ✅ Ambil pesan dari Firebase real-time
@@ -21,7 +22,14 @@ export default function App() {
     });
   };
 
-  const photos = ["/img/Photo1.jpg", "/img/Photo2.jpg"];
+  const photos = [
+    "/img/Photo5.jpg",
+    "/img/Photo2.jpg",
+    "/img/Photo3.jpg",
+    "/img/Photo4.jpg",
+    "/img/Photo1.jpg",
+    "/img/Photo6.jpg",
+  ];
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -29,6 +37,7 @@ export default function App() {
       <Hero />
       <MessageForm onAdd={handleAddMessage} />
       <Messages messages={messages} />
+      <TeamMembers />
       <Gallery photos={photos} onSelect={setSelectedPhoto} />
       {selectedPhoto && (
         <Modal src={selectedPhoto} onClose={() => setSelectedPhoto(null)} />

@@ -5,7 +5,7 @@ interface Props {
 
 export default function Gallery({ photos, onSelect }: Props) {
   return (
-    <section id="gallery" className="py-20 px-6 bg-gray-50">
+    <section id="gallery" className="py-10 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -16,7 +16,7 @@ export default function Gallery({ photos, onSelect }: Props) {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-20">
+        <div className="flex flex-wrap justify-center md:gap-20 gap-12">
           {photos.map((src, i) => (
             <div
               key={i}
